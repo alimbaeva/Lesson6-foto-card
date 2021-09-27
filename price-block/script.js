@@ -51,7 +51,7 @@ function init() {
         itemBtn.style.bottom = '0';
         itemBtn.textContent = 'buy';
         itemBtn.setAttribute('id', 'btn_' + i);// кнопке присваиваем  id по индексу = btn_0  и т.д
-        itemBtn.onclik = addItem; // по клику  мы ее покупаем тоесть вызываем функцию addItem
+        itemBtn.onclick = addItem; // по клику  мы ее покупаем тоесть вызываем функцию addItem
         item.appendChild(itemBtn);
 
         catalog.appendChild(item);
@@ -65,7 +65,7 @@ function addItem(event) {// event это событие тоесть кнопк�
     var mas = button.id.split('_'); // обращаемся к айдишнику кнопки и преобразуем мтроку айди в массив
     var id = mas[1]; // индекс элемента массива на котором кликнули по кнопке купить-------- нам нужен id индекс 1 нам дает цифру 1 и т.д 
     var selectedItem = arrayItem[id]; //выбранный товар из массива -------- после получения id с помошью этой цифры мы ишем наш товар в массиве по id--- selectedItem это товар который мы покупаем
-    // var selectedItem = arrayItem[obj.target.id.split("_")[1]];
+    // var selectedItem = arrayItem[event.target.id.split("_")[1]];
     var selectedItems = document.getElementsByClassName('selected_items')[0]; // basket
     var tr = selectedItems.insertRow(); // создание строки в таблице
     var td = tr.insertCell();
@@ -80,86 +80,5 @@ function addItem(event) {// event это событие тоесть кнопк�
 }
 
 
-
-
-
-// var i1 = {
-//     name: "Honda Silver Wing 600",
-//     imgSrc: 'img/1.jpg',
-//     price: 600000
-// };
-
-// var i2 = {
-//     name: "Suzuki Burgman 650",
-//     imgSrc: 'img/2.jpg',
-//     price: 680000
-// };
-
-// var i3 = {
-//     name: "Yamaha T-MAX",
-//     imgSrc: 'img/3.jpg',
-//     price: 650000
-// };
-
-// var i4 = {
-//     name: "BMW C650GT",
-//     imgSrc: 'img/2.jpg',
-//     price: 700000
-// };
-
-// var itemsArray = [i1, i2, i3, i4];
-
-// var sum = 0;
-
-// function init() {
-//     var catalog = document.getElementsByClassName("catalog")[0];
-//     var i, item;
-//     for (i = 0; i < arrayItem.length; i++) {
-//         item = document.createElement("div");
-//         item.setAttribute("class", "div_item");
-//         item.appendChild(document.createTextNode(arrayItem[i].name));
-//         item.style.position = "relative";
-//         item.style.border = "0.5px solid gray";
-
-//         itemImg = document.createElement("img");
-//         itemImg.src = arrayItem[i].imgSrc;
-//         itemImg.style.display = "block";
-//         itemImg.style.height = "120px";
-//         itemImg.style.width = "160px";
-
-//         item.appendChild(itemImg);
-
-//         item.appendChild(document.createTextNode(arrayItem[i].price + "\u20bd"));
-
-//         itemBtn = document.createElement("button");
-//         itemBtn.style.position = "absolute";
-//         itemBtn.style.right = "0";
-//         itemBtn.style.bottom = "0";
-//         itemBtn.textContent = "buy";
-//         itemBtn.setAttribute("id", "btn_" + i);
-//         itemBtn.onclick = addItem;
-//         item.appendChild(itemBtn);
-
-//         catalog.appendChild(item);
-//     }
-// }
-
-
-// function addItem(obj) {
-
-//     var selectedItem = arrayItem[obj.target.id.split("_")[1]];//выбранный товар из массива
-//     var selectedItems = document.getElementsByClassName("selected_items")[0];//basket
-//     var tr = selectedItems.insertRow(-1);
-//     var td = tr.insertCell(-1);
-//     td.appendChild(document.createTextNode(selectedItem.name));
-//     var td = tr.insertCell(-1);
-//     td.style.textAlign = "center";
-//     td.style.width = "100px";
-//     td.appendChild(document.createTextNode("    " + selectedItem.price + "\u20bd"));
-
-//     sum += selectedItem.price;
-//     document.getElementsByClassName("sum")[0].textContent = "Sum: " + sum + "\u20bd";
-// }
-// window.onload = init;
 
 window.onload = init; // запускаем функцию
